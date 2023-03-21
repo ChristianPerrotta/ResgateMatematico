@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fatorial</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="./all_css/overall_classes.css">
+  <script src="https://kit.fontawesome.com/36ad8fab8c.js" crossorigin="anonymous"></script>
+</head>
+<body class="w3-light-grey">
+
+<!-- Menu -->
+<div class="topnav" id="myTopnav">
+  <a href="./index.html">Questões</a>
+  <a href="./fatorial.html" class="active">Fatorial</a>
+  <a href="./permutacao.html">Permutação</a>
+  <a href="./anagrama.html">Anagrama</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+
+</div>
+<script src="./all_js/menu.js"></script>
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+<!-- The Grid -->
+<div class="w3-row-padding">
+
+  <!-- Center Card -->
+  <div class="w3-col l8">
+      
+    <div class="w3-container w3-card w3-white w3-margin-bottom">
+
+        <h1><br>FATORIAL</h1>
+        <hr>
+        <h2>Introdução</h2>
+        <p>O fatorial de um número <span class="math">n</span> é sempre o resultado de uma multiplicação.<br>
+        Essa multiplicação é feita entre todos os números naturais de <span class="math">n</span> até 1.</p>
+        
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code">
+            <p>5! = 5・4・3・2・1 = 120</p>
+            <p>3! = 3・2・1 = 6</p>
+            <p>7! = 7・6・5・4・3・2・1 = 5040</p>
+          </div>
+        </div>
+
+        <p>O cálculo de fatorial é muito utilizado em Análise Combinatória,
+          mais especificamente nos casos de Permutação, Arranjo e Combinação.</p>
+        <p>É essencial compreender muito bem o fatorial antes de seguir para os
+          demais estudos do assunto.</p>
+
+        <hr>
+        <h2>Definição</h2>
+        <p>Na matemática, o fatorial de um número natural <span class="math">n</span>,
+          escrito <span class="math">n!</span>, é o produto de todos os números naturais menores 
+          ou iguais a <span class="math">n</span>.</p>
+        <p>Para o número 6, por exemplo, temos que <span class="math">6!</span> (lido "seis fatorial") é dado por:</p>
+        <blockquote>6! = 6・5・4・3・2・1 = 720</blockquote>
+        <p>Para um número desconhecido qualquer <span class="math">n</span>, temos seu fatorial dado por:</p>
+        <blockquote>n! = n・(n - 1)・(n - 2)・...・3・2・1</blockquote>
+        <p>Não é preciso que todo fatorial chegue até 1. É sempre possível parar a operação 
+          no meio do caminho. Para isso, mantemos o sinal de fatorial no número final, para indicar 
+          que a operação ainda deveria continuar.</p>
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code">
+            <p>12! = 12・11!</p>
+            <p>ou 12! = 12・11・10!</p>
+            <p>ou 12! = 12・11・10・9!</p>
+            <p>etc.</p>
+          </div>
+        </div>
+        <p>O mesmo pode ser feito com qualquer incógnita.</p>
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code">
+            <p>n! = n・(n - 1)!</p>
+            <p>ou n! = n・(n - 1)・(n - 2)!</p>
+            <p>ou n! = n・(n - 1)・(n - 2)・(n - 3)!</p>
+            <p>etc.</p>
+          </div>
+        </div>
+        <p>Qual seria a utilidade de interromper o fatorial no meio do caminho?</p>
+        <p>Bem, esse procedimento pode ajudar em frações, caso haja fatoriais no numerador 
+          e no denominador. É uma prática muito comum abrir o fatorial do 
+          <span class="math">maior número</span> e 
+          parar quando alcançamos o <span class="math">menor número</span>. 
+          Quando feito corretamente, geralmente podemos dividir os valores com fatoriais.</p>
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code" style="text-align: left">
+            <div style="display: inline-block; text-align: center;padding-left: 40px"">
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>10!</td></tr>
+                <tr><td>7!</td></tr>
+              </table>
+            </p>
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>10・9・8・7!</td></tr>
+                <tr><td>7!</td></tr>
+              </table>
+            </p>
+            </div>
+            <p>Dividimos 7! por 7!:</p>
+            <div style="display: inline-block; text-align: center;padding-left: 40px"">
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>10・9・8・<strike>7!</strike></td></tr>
+                <tr><td><strike>7!</strike></td></tr>
+              </table>
+            </p>
+            <p>10・9・8</p>
+            <p>720</p>
+            </div>
+          </div>
+        </div>
+
+        <p>Todo fatorial que vamos utilizar é aplicado sobre um número natural. 
+          Isto é, não veremos fatorial de números negativos, nem decimais.</p>
+        <p>Observe que existe fatorial de 0, e seu valor é 1.</p>
+        <blockquote>0! = 1</blockquote>
+        <p>Isso pode não parecer muito correto para algumas pessoas, mas é o 
+          consenso sobre seu valor. Trata-se de uma convenção, mas ela tem muitas 
+          motivações para ser assim. Algumas são muitos complexas de apresentar, 
+          mas podemos listar entre elas:</p>
+        <ul>
+          <li>na adição, a ausência de valores se somando resulta no elemento neutro da adição: o zero; 
+            assim, na multiplicação, a ausência de valores se multiplicando resulta no elemento neutro 
+            da multiplicação: o 1.
+          </li>
+          <li>a permutação de zero objetos é 1, ou seja, podemos reordenar zero 
+            objetos de apenas uma maneira.
+          </li>
+          <li>essa convenção permite que arranjos e combinações de 
+            <span class="math">n</span> a <span class="math">n</span> (onde 
+            aparece o 0!) tenham resultados válidos.
+          </li>
+        </ul>
+
+        <p>Outras explicações envolveriam somatórios de potências, número de Euler 
+          e a função gama, que são tópicos da matemática de pouco interesse 
+          para a formação básica.</p>
+
+
+        <hr>
+        <h2>Aplicações</h2>
+        <p>Os valores dos fatoriais crescem muito rapidamente. 
+          Por isso, não vemos fatoriais de números muitos altos. 
+          O mais frequente são valores até 6!, mas podendo também ir até 8!.
+        </p>
+        <p>Como são poucos os valores utilizados na prática, é interessante 
+          já conhecê-los e internalizá-los previamente. Normalmente, a prática 
+          de exercícios e questões leva à memorização de maneira natural.
+        </p>
+
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code">
+            <div class="w3-row-padding">
+              <div class="w3-col l3">
+                <p>0! = 1</p>
+              </div>
+              <div class="w3-col l3">
+                <p>1! = 1</p>
+              </div>
+              <div class="w3-col l3">
+                <p>2! = 2</p>
+              </div>
+            </div>
+
+            <div class="w3-row-padding">
+              <div class="w3-col l3">
+                <p>3! = 6</p>
+              </div>
+              <div class="w3-col l3">
+                <p>4! = 24</p>
+              </div>
+              <div class="w3-col l3">
+                <p>5! = 120</p>
+              </div>
+            </div>
+
+            <div class="w3-row-padding">
+              <div class="w3-col l3">
+                <p>6! = 720</p>
+              </div>
+              <div class="w3-col l3">
+                <p>7! = 5040</p>
+              </div>
+              <div class="w3-col l3">
+                <p>8! = 40320</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    
+        <p>Note que é possível rapidamente descobrir o fatorial de um 
+          número se já sabemos o fatorial de seu antecessor. Por exemplo, 
+          se já sabemos o fatorial de 6, rapidamente podemos chegar no fatorial de 7, 
+          já que:</p>
+        <blockquote>7! = 7・6!</blockquote>
+
+        <p>Igualmente, sabendo o fatorial de um número, podemos chegar 
+          no fatorial do seu antecessor. Basta para isso dividir o fatorial 
+          do número pelo mesmo número.</p>
+        <p>Por exemplo, se sabemos que 10! vale 3.628.800, podemos facilmente chegar 
+          em 9! da seguinte forma:</p>
+        <blockquote>
+          9! = <table class='frac'>
+              <tr class='num'>
+                <td>10!</td></tr>
+                <tr><td>10</td></tr>
+              </table>
+        </blockquote>
+
+        <p>É muito comum que apareçam cálculos de fatorial em frações. 
+          Nesses casos, frequentemente realizamos simplificações nos fatoriais 
+          para evitar contas longas e desnecessárias.</p>
+        <p>Um ótimo pensamento para isso é de abrir o fatorial do maior número 
+          até que ele chegue no fatorial do menor número.</p>
+        
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code">
+            <div style="display: inline-block; text-align: center;padding-left: 40px"">
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>12!</td></tr>
+                <tr><td>9!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>12・11・10・9!</td></tr>
+                <tr><td>9!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>12・11・10・<strike>9!</strike></td></tr>
+                <tr><td><strike>9!</strike></td></tr>
+              </table>
+            </p>
+            <p>12・11・10</p>
+            <p>1320</p>
+            </div>
+
+          </div>
+        </div>
+
+        <p>Observe que o menor número pode estar tanto no numerador quanto no 
+          denominador (embora, na prática, seja muito mais comum o menor número 
+          vir no denominador).</p>
+
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code">
+            <div style="display: inline-block; text-align: center;padding-left: 40px"">
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>5!</td></tr>
+                <tr><td>8!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>5!</td></tr>
+                <tr><td>8・7・6・5!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td><strike>5!</strike></td></tr>
+                <tr><td>8・7・6・<strike>5!</strike></td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>1</td></tr>
+                <tr><td>8・7・6</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>1</td></tr>
+                <tr><td>336</td></tr>
+              </table>
+            </p>
+
+            </div>
+          </div>
+        </div>
+
+        <p>Por vezes, diversos fatoriais poderão vir, tanto no numerador 
+          quanto no denominador. Nesse caso, o mais interessante é tentar 
+          simplificar o maior fatorial de cima com o maior de baixo, 
+          e seguir com a mesma lógica para os demais.</p>
+        
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code" style="text-align: left">
+            <div style="display: inline-block; text-align: center;padding-left: 40px"">
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6!・8!</td></tr>
+                <tr><td>7!・4!</td></tr>
+              </table>
+            </p>
+            </div>
+
+            <p>O maior fatorial de cima é o 8!, e o de baixo é 7!. 
+              Então vamos reduzir o 8! para 8・7!.</p>
+
+            <div style="display: inline-block; text-align: center;padding-left: 40px"">
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6!・8・7!</td></tr>
+                <tr><td>7!・4!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6!・8・<strike>7</strike>!</td></tr>
+                <tr><td><strike>7!</strike>・4!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6!・8</td></tr>
+                <tr><td>4!</td></tr>
+              </table>
+            </p>
+            </div>
+
+            <p>Em seguida, abrimos o 6! em 6・5・4!.</p>
+
+            <div style="display: inline-block; text-align: center;padding-left: 40px"">
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6・5・4!・8</td></tr>
+                <tr><td>4!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6・5・<strike>4!</strike>・8</td></tr>
+                <tr><td><strike>4!</strike></td></tr>
+              </table>
+            </p>
+
+            <p>6・5・8</p>
+
+            <p>240</p>
+            </div>
+
+            <p>Havendo mais familiaridade com o processo, ele pode 
+              ser feito de uma só vez.</p>
+
+            <div style="display: inline-block; text-align: center;padding-left: 40px";>
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6!・8!</td></tr>
+                <tr><td>7!・4!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6・5・4!・8・7!</td></tr>
+                <tr><td>7!・4!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>6・5・<strike>4!</strike>・8・<strike>7!</strike></td></tr>
+                <tr><td><strike>7!</strike>・<strike>4!</strike></td></tr>
+              </table>
+            </p>
+
+            <p>6・5・8</p>
+
+            <p>240</p>
+            </div>
+
+            </div>
+          </div>
+
+        <p>Para situações de fatorial de incógnitas, é preciso ter um cuidado maior. 
+          Como não sabemos qual é o valor da incógnita, devemos trabalhar de forma genérica. 
+          Por isso, nunca vamos levar o fatorial até o final, justamente por não sabermos 
+          onde está o final. Normalmente, abrimos o fatorial em 2 ou 3 fatores apenas, 
+          a depender do caso.</p>
+        <p>Um fatorial dado por <span class="math">n!</span>, por exemplo, pode ser aberto como:</p>
+        <ul>
+          <li>n! = n・(n - 1)!</li>
+          <li>n! = n・(n - 1)・(n - 2)!</li>
+          <li>n! = n・(n - 1)・(n - 2)・(n - 3)!</li>
+        </ul>
+        <p>Não é comum precisar abrir o fatorial mais do que isso.</p>
+        <p>Vejamos alguns exemplos de aplicação desse processo.</p>
+
+        <div class="example">
+          <h3>Exemplo</h3>
+          <div class="code" style="text-align: left">
+            <div style="display: inline-block; text-align: center;padding-left: 40px"">
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>n!</td></tr>
+                <tr><td>(n - 2)!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>n・(n - 1)・(n - 2)!</td></tr>
+                <tr><td>(n - 2)!</td></tr>
+              </table>
+            </p>
+
+            <p><table class='frac'>
+              <tr class='num'>
+                <td>n・(n - 1)・<strike>(n - 2)!</strike></td></tr>
+                <tr><td><strike>(n - 2)!</strike></td></tr>
+              </table>
+            </p>
+
+            <p>n・(n - 1)</p>
+
+            <p>n² - n</p>
+
+            </div>
+
+          </div>
+        </div>
+
+    <!-- End of section -->
+    </div>
+  </div>
+
+  <!-- Right Card -->
+  <div class="w3-col l3">
+      
+    <div class="w3-container w3-card w3-white w3-margin-bottom">
+
+        <p>Em construção.</p>
+
+    </div>
+  </div>
+</div>
+
+<!-- End Grid -->
+</div>
+
+<!-- End Page Container -->
+</div>
+
+</body>
+</html>
