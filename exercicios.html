@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Treino de combinatória</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="./all_css/overall_classes.css">
+  <script src="https://kit.fontawesome.com/36ad8fab8c.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body class="w3-light-grey">
+
+<!-- Menu -->
+<div class="topnav" id="myTopnav">
+  <a href="./index.html" class="active">Questões</a>
+  <a href="./fatorial.html">Fatorial</a>
+  <a href="./permutacao.html">Permutação</a>
+  <a href="./anagrama.html">Anagrama</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+
+</div>
+<script src="./all_js/menu.js"></script>
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+<!-- The Grid -->
+<div class="w3-row-padding">
+
+  <!-- Center Card -->
+  <div class="w3-threequarter">
+      
+    <div class="w3-container w3-card w3-white w3-margin-bottom">
+
+    <p>Selecione o nível da questão: </p>
+    
+    <div class="w3-row-padding">
+      <div class="w3-col l3 m3">
+        <input type="radio" id="lv1" name="level" value="0">
+        <label for="lv1">Fácil</label>
+      </div>
+      <div class="w3-col l3 m3">
+        <input type="radio" id="lv2" name="level" value="1">
+        <label for="lv2">Médio</label>
+      </div>
+      <div class="w3-col l3 m3">
+        <input type="radio" id="lv3" name="level" value="2">
+        <label for="lv3">Difícil</label>
+      </div>
+      <div class="w3-col l3 m3">
+        <input type="radio" id="rand_lv" name="level" checked value="4">
+        <label for="rand_lv">Aleatório</label>
+      </div>
+    </div>
+
+    <p>Selecione o assunto: </p>
+    
+    <div class="w3-row-padding">
+      <div class="w3-col l3 m3">
+        <input type="radio" id="factorial" name="topic" value="0">
+        <label for="factorial">Fatorial</label>
+      </div>
+      <div class="w3-col l3 m3">
+        <input type="radio" id="permutation" name="topic" value="1">
+        <label for="permutation">Permutação</label>
+      </div>
+      <div class="w3-col l3 m3">
+        <input type="radio" id="anagram" name="topic" value="2">
+        <label for="anagram">Anagrama</label>
+      </div>
+      <div class="w3-col l3 m3">
+        <input type="radio" id="rand_topic" name="topic" checked value="4">
+        <label for="rand_topic">Aleatório</label>
+      </div>
+    </div>
+
+    <p style="display: inline-block">Clique no botão a seguir para gerar uma questão aleatória.</p>
+    <button id="start" onclick="createProblem()">Iniciar</button>
+
+    <p id="command"></p>
+    <table id="table" hidden>
+        <tr>
+          <td>Resposta: </td>
+          <td><input class="w3-input w3-round-large w3-border-0 w3-light-grey" type="text" id="user_answer" name="user_answer"></td>
+          <td><button id="bt_show_answer" onclick="showAnswer()">Corrigir</button></td>
+        </tr>
+    </table>
+
+    <p id="correct_or_not" hidden></p>
+
+    <!-- Accordions -->
+    <div class="accordion-div" id="ans_details" hidden>
+      <button class="accordion" name="accordion">Qual é a resposta correta?</button>
+      <div class="panel">
+        <p id="correct_answer"></p>
+      </div>
+
+      <button class="accordion" name="accordion">Que contas foram feitas?</button>
+      <div class="panel">
+        <p id="how_did_you_do_that"></p>
+      </div>
+
+      <button class="accordion" name="accordion">Quando devo fazer isso?</button>
+      <div class="panel">
+        <p id="when_should_i_do_it"></p>
+      </div>
+    
+      <script src="./all_js/accordions.js"></script>
+      
+    <!-- End of the Accordions -->
+    </div>
+
+      <p></p>
+
+    <script src="./all_js/objects.js"></script>
+    <script id="topic" src=""></script>
+    <script src="./all_js/problem_generator.js"></script>
+
+    </div>
+  </div>
+
+  <!-- Right Card -->
+  <div class="w3-quarter">
+      
+    <div class="w3-container w3-card w3-white w3-margin-bottom">
+      <p style="text-align: center;">Pontuação</p>
+      <p id="score" style="text-align: center;font-size:150%">0/0<p>
+      <div style="text-align:center;">
+        <button id="reset_score" onclick="resetScore()">Zerar Pontuação</button>
+      </div>
+      <p></p>
+      <div style="text-align:center;">
+        <p style="text-align: center;">Tempo</p>
+        <label id="minutes">00</label>
+        <label id="colon">:</label>
+        <label id="seconds">00</label>
+        <script src="./all_js/timer.js"></script>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Grid -->
+</div>
+
+<!-- End Page Container -->
+</div>
+
+</body>
+</html>

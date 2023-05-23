@@ -162,18 +162,61 @@
 
 
 <!-- ----------------- Page Container ----------------- -->
-<div style="height:fit-content!important;">
+<div class="main-box">
+  
+  <!-- PRE-DRILL SETTINGS -->
+  <div class="subject">
+    <div class="responsive-flex">
+      <!-- FIRST ITEM -->
+      <div class="button" id="drill-config-1">Treino rápido</div>
 
-  <div style="position:relative;">
-    <img src="./images/cube.jpg" width=100%>
-    <div class="random-box">
-      <h2>GERADOR DE QUESTÕES <span style="color:#e63946">[</span>ALEATÓRIAS<span style="color:#e63946">]</span></h2>
-      <p>Exercite os conteúdos com questões criadas a cada vez, a partir de diversos padrões em nosso banco de dados.</p>
-      <a href="#" id="try-button">EXPERIMENTE</a>
+      <!-- SECOND ITEM -->
+      <div class="responsive-flex-inv" id="drill-config-2">
+        <div class="border-item"><hr></div>
+        <div>ou</div>
+        <div class="border-item"><hr></div>
+      </div>
+
+      <!-- THIRD ITEM -->
+      <div id="drill-config-3">
+        <p>Selecione o nível:</p>
+        <div style="display:flex;column-gap: 30px;">
+          <div>
+            <input type="radio" id="facil" name="dificulty" value="facil">
+            <label for="facil">2 e 3</label>
+          </div>
+          <div>
+            <input type="radio" id="medio" name="dificulty" value="medio">
+            <label for="medio">4, 5 e 6</label>
+          </div>
+          <div>
+            <input type="radio" id="dificil" name="dificulty" value="dificil">
+            <label for="dificil">7, 8 e 9</label>
+          </div>
+        </div>
+    
+        <p>Selecione o modo:</p>
+        <div style="display:flex;column-gap: 30px;">
+          <div>
+            <input type="radio" id="perfect" name="mode" value="perfect">
+            <label for="medio">até acertar tudo</label>
+          </div>
+          <div>
+            <input type="radio" id="once" name="mode" value="once">
+            <label for="facil">uma só rodada</label>
+          </div>
+        </div>
+      </div>
+
     </div>
+  
+  <!-- END OF CARD -->
   </div>
 
-  
+  <div class="subject" style="display:none">
+    <p>Treino</p>
+  </div>
+
   <!-- End Page Container -->
 </div>
 
